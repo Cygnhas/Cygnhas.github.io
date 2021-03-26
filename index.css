@@ -12,12 +12,6 @@ body {
     min-width: 0;
     max-width: 95%;
   }
-  #tooltip-wrapper {
-    direction: row;
-  }
-  #icon-wrapper {
-    width: 100%;
-  }
 }
 .card {
   flex-grow: 1;
