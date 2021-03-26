@@ -30,7 +30,7 @@ const input_ids = ["ability", "empathy", "union", "union_mechanic", "monster_von
 
 function assertInput(name, value) {
   if(0 <= value && value <= limits[name]) {
-    return;
+    return
   }
   throw "잘못된 입력입니다."
 }
@@ -39,6 +39,7 @@ let durationBar
 let durationSecs
 let cooltimeBar
 let cooltimeSecs
+let summaryView
 
 function updateGraph() {
   let buffremValue = buffrem.ability + Math.floor(buffrem.empathy / 10)
@@ -53,6 +54,20 @@ function updateGraph() {
   durationSecs.innerHTML = `${Math.round(buffDuration * 100) / 100}초`
   cooltimeBar.style.width = `${cooltime / maxValue * widthMultiplier}%`
   cooltimeSecs.innerHTML = `${Math.round(cooltime * 100) / 100}초`
+
+  if(buffDuration < cooltime) {
+    summaryView.style.visibility = 'visible'
+    let i
+    for(i = 1; i < 64; i++) {
+      if(defaultDuration * (1 + (buffremValue + i) / 100) >= cooltime) break
+    }
+    summaryView.innerHTML = `지속시간이 쿨타임보다 ${Math.round((cooltime-buffDuration) * 100) / 100}초 부족합니다.`
+                          + ` 버프 지속시간 ${i}% 추가 증가 시 지속시간이 쿨타임보다 길어집니다.`
+  }
+  else {
+    summaryView.style.visibility = 'collapsed'
+    summaryView.innerHTML = ""
+  }
 }
 
 window.onload = () => {
@@ -60,6 +75,7 @@ window.onload = () => {
   durationSecs = document.getElementById("graph-duration-secs")
   cooltimeBar = document.getElementById("graph-cooltime-bar")
   cooltimeSecs = document.getElementById("graph-cooltime-secs")
+  summaryView = document.getElementById("summary")
 
   for(const id of input_ids) {
     document.getElementById(id).addEventListener('change', (event) => {
@@ -73,11 +89,11 @@ window.onload = () => {
           case "union":
           case "union_mechanic":
             buffrem[name] = value
-            break;
+            break
           case "mercedes":
           case "hat":
             cooltimeReduce[name] = value
-            break;
+            break
           case "monster_vonbon":
           case "monster_arkarium":
           case "monster_will":
