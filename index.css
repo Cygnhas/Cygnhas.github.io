@@ -1,0 +1,99 @@
+body {
+  background: #e2e1e0;
+}
+#content {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  flex-grow: 1;
+  width: auto;
+  max-width: 584px;
+  height: auto;
+  padding: 16px;
+  margin: 8px;
+  background: #FFFFFF;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+#tooltip-wrapper {
+  display: flex;
+  width: auto;
+  height: 80px;
+}
+#icon-wrapper {
+  position: relative;
+  width: 80px;
+  height: 100%;
+  float: left;
+}
+#mikhail-icon {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: scale(2);
+  image-rendering: pixelated;
+}
+#graph-wrapper {
+  flex-grow: 1;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#graph-duration, #graph-cooltime {
+  display: flex;
+  direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+.graph-text {
+  display: flex;
+  justify-content: center;
+  width: 64px;
+}
+.graph-bar-wrapper {
+  display: flex;
+  flex: 1;
+  direction: column;
+  margin-left: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+#graph-duration-bar {
+  float: left;
+  height: 8px;
+  background: orange;
+}
+#graph-cooltime-bar {
+  float: left;
+  height: 8px;
+  background: gray;
+}
+#graph-duration-secs {
+  float: left;
+  width: 60px;
+  margin-left: 8px;
+  word-wrap: none;
+  color: orange;
+}
+#graph-cooltime-secs {
+  float: left;
+  width: 60px;
+  margin-left: 8px;
+  word-wrap: none;
+  color: gray;
+}
+
+#input-wrapper {
+  display: flex;
+}
+
+.input-col {
+  flex: 1;
+}

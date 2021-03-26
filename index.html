@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>버프 지속 계산기</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <div class="card">
+        <div id="tooltip-wrapper">
+          <div id="icon-wrapper">
+            <image id="mikhail-icon" src="./public/50001214.icon.png"/>
+          </div>
+          <div id="graph-wrapper">
+            <div id="graph-duration">
+              <div class="graph-text">지속시간</div>
+              <div class="graph-bar-wrapper">
+              <div id="graph-duration-bar"></div>
+              <div id="graph-duration-secs">180초</div>
+              </div>
+            </div>
+            <div id="graph-cooltime">
+              <div class="graph-text">쿨타임</div>
+              <div class="graph-bar-wrapper">
+                <div id="graph-cooltime-bar"></div>
+                <div id="graph-cooltime-secs">180초</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="input-wrapper">
+          <div class="input-col">
+            <h3>버프 지속시간</h3>
+            <div>
+              <div>어빌리티%(0~50)</div>
+              <input type="number" id="ability" placeholder="0"></input>
+            </div>
+            <div>
+              <div>성향: 감성 레벨(1~100)</div>
+              <input type="number" id="empathy" placeholder="1"></input>
+            </div>
+            <div>
+              <div>유니온 점령 효과%(0~40)</div>
+              <input type="number" id="union" placeholder="0"></input>
+            </div>
+            <div>
+              <div>유니온 메카닉 등급</div>
+              <select id="union_mechanic">
+                <option value="0">없음</option>
+                <option value="5">B</option>
+                <option value="10">A</option>
+                <option value="15">S</option>
+                <option value="20">SS</option>
+                <option value="25">SSS</option>
+              </select>
+            </div>
+            <div>
+              <div>몬라: 반반</div>
+              <input type="checkbox" id="monster_vonbon" value="5"></input>
+            </div>
+            <div>
+              <div>몬라: 쁘띠 아카이럼</div>
+              <input type="checkbox" id="monster_arkarium" value="5"></input>
+            </div>
+            <div>
+              <div>몬라: 군단장 윌</div>
+              <input type="checkbox" id="monster_will" value="6"></input>
+            </div>
+          </div>
+          <div class="input-col">
+            <h3>쿨타임 감소</h3>
+            <div>
+              <div>유니온: 메르세데스</div>
+              <select id="mercedes">
+                <option value="0">없음</option>
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+                <option value="5">SS</option>
+                <option value="6">SSS</option>
+              </select>
+            </div>
+            <div>
+              <div>모자 쿨타임 감소(초)</div>
+              <input type="number" id="hat" placeholder="0"></input>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>
