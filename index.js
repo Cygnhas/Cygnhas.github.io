@@ -57,17 +57,25 @@ function updateGraph() {
 
   if(buffDuration < cooltime) {
     summaryView.style.visibility = 'visible'
+    summaryView.style.padding = '16px'
+    summaryView.style.marginTop = '8px'
     let i
     for(i = 1; i < 64; i++) {
       if(defaultDuration * (1 + (buffremValue + i) / 100) >= cooltime) break
     }
-    summaryView.innerHTML = `지속시간이 쿨타임보다 ${Math.round((cooltime-buffDuration) * 100) / 100}초 부족합니다.`
-                          + ` 버프 지속시간 ${i}% 추가 증가 시 지속시간이 쿨타임보다 길어집니다.`
+    summaryView.innerHTML = `지속시간이 쿨타임보다 <span style="color: orange;">${Math.round((cooltime-buffDuration) * 100) / 100}</span>초 부족합니다.`
+                          + ` 버프 지속시간 <span style="color: orange;">${i}</span>% 추가 증가 시 지속시간이 쿨타임보다 길어집니다.`
   }
   else {
-    summaryView.style.visibility = 'collapsed'
+    summaryView.style.visibility = 'collapse'
+    summaryView.style.padding = '0'
+    summaryView.style.marginTop = '0'
     summaryView.innerHTML = ""
   }
+}
+
+function saveValue(event) {
+  localStorage.setItem(event.target.id, event.target.value)
 }
 
 window.onload = () => {
@@ -78,7 +86,8 @@ window.onload = () => {
   summaryView = document.getElementById("summary")
 
   for(const id of input_ids) {
-    document.getElementById(id).addEventListener('change', (event) => {
+    let elem = document.getElementById(id)
+    elem.addEventListener('change', (event) => {
       try {
         let name = event.target.id
         let value = Number(event.target.value)
@@ -101,10 +110,12 @@ window.onload = () => {
         }
       }
       catch(e) {
-        console.log("Invalid input")
       }
+      saveValue(event)
       updateGraph()
     })
+    elem.value = localStorage.getItem(id) ?? ""
+    elem.dispatchEvent(new Event('change'))
   }
   updateGraph()
 }
