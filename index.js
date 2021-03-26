@@ -91,6 +91,5 @@ window.onload = () => {
     })
   }
   updateGraph()
-  console.log("loaded")
 }
 
