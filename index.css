@@ -11,12 +11,6 @@ body {
     min-width: 10%;
     max-width: 90%;
   }
-  #tooltip-wrapper {
-    direction: row;
-  }
-  #icon-wrapper {
-    width: 100%;
-  }
 }
 @media (min-width: 401px) {
   .card {
