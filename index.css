@@ -5,10 +5,22 @@ body {
   display: flex;
   justify-content: center;
 }
+@media (min-width: 768px) {
+  .card {
+    width: auto;
+    min-width: 384px;
+    max-width: 584px;
+  }
+}
+@media (max-width: 767px) {
+  .card {
+    width: 100%;
+    min-width: 384px;
+    max-width: 100%;
+  }
+}
 .card {
   flex-grow: 1;
-  width: auto;
-  max-width: 584px;
   height: auto;
   padding: 16px;
   margin: 8px;
