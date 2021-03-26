@@ -29,20 +29,22 @@
           </div>
         </div>
 
+        <div id="errors"></div>
+
         <div id="input-wrapper">
           <div class="input-col">
             <h3>버프 지속시간</h3>
             <div>
               <div>어빌리티%(0~50)</div>
-              <input type="number" id="ability" placeholder="0"></input>
+              <input type="number" id="ability" min="0" max="50" placeholder="0"></input>
             </div>
             <div>
               <div>성향: 감성 레벨(1~100)</div>
-              <input type="number" id="empathy" placeholder="1"></input>
+              <input type="number" id="empathy" min="1" max="100" placeholder="1"></input>
             </div>
             <div>
               <div>유니온 점령 효과%(0~40)</div>
-              <input type="number" id="union" placeholder="0"></input>
+              <input type="number" id="union" min="0" max="40" placeholder="0"></input>
             </div>
             <div>
               <div>유니온 메카닉 등급</div>
@@ -83,12 +85,10 @@
             </div>
             <div>
               <div>모자 쿨타임 감소(초)</div>
-              <input type="number" id="hat" placeholder="0"></input>
+              <input type="number" id="hat" min="0" max="9" placeholder="0"></input>
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </body>
