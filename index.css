@@ -44,13 +44,14 @@ body {
   flex-grow: 1;
   padding-left: 8px;
   padding-right: 8px;
+  padding-top: 10px;
 }
 #graph-duration, #graph-cooltime {
   display: flex;
   direction: column;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  height: 40%;
 }
 .graph-text {
   display: flex;
@@ -88,6 +89,12 @@ body {
   margin-left: 8px;
   word-wrap: none;
   color: gray;
+}
+
+#summary {
+  border-radius: 4px;
+  background-color: #232f34;
+  color: #FFFFFF;
 }
 
 #input-wrapper {
