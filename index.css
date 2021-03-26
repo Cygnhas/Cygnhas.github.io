@@ -9,8 +9,14 @@ body {
 @media (max-width: 400px) {
   .card {
     width: auto;
-    min-width: 0;
-    max-width: 95%;
+    min-width: 10%;
+    max-width: 90%;
+  }
+  #tooltip-wrapper {
+    direction: row;
+  }
+  #icon-wrapper {
+    width: 100%;
   }
 }
 .card {
