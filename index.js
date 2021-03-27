@@ -75,7 +75,12 @@ function updateGraph() {
 }
 
 function saveValue(event) {
-  localStorage.setItem(event.target.id, event.target.value)
+  if(event.target.id.startsWith("monster")) {
+    localStorage.setItem(event.target.id, event.target.checked)
+  }
+  else {
+    localStorage.setItem(event.target.id, event.target.value)
+  }
 }
 
 window.onload = () => {
@@ -107,6 +112,7 @@ window.onload = () => {
           case "monster_arkarium":
           case "monster_will":
             buffrem[name] = event.target.checked ? value : 0
+            break
         }
       }
       catch(e) {
@@ -114,7 +120,12 @@ window.onload = () => {
       saveValue(event)
       updateGraph()
     })
-    elem.value = localStorage.getItem(id) ?? ""
+    if(id.startsWith("monster")) {
+      elem.checked = localStorage.getItem(id)
+    }
+    else {
+      elem.value = localStorage.getItem(id) ?? ""
+    }
     elem.dispatchEvent(new Event('change'))
   }
   updateGraph()
